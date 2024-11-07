@@ -20,6 +20,7 @@ runs:
   using: "composite"
   steps:
     - name: "Dispatch Event"
+      shell: bash
       run: |
           curl -X POST \
           -H "Authorization: token ${{ inputs.forked_repository_token }}" \
