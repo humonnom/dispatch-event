@@ -2,13 +2,13 @@
 
 ## 개요
 
-이 GitHub Action은 포크된 저장소에 `main_updated` 이벤트를 트리거하는 간단하고 효과적인 도구입니다. 자동 동기화를 위해 사용할 수 있습니다.
+이 GitHub Action은 포크된 저장소에 `main_updated` 이벤트를 트리거하는 간단하고 효과적인 도구입니다. 자동 동기화를 위한 도구입니다.
 
 ## 기능
 
-- 포크된 저장소에 자동 이벤트 디스패치
-- 개인 액세스 토큰을 통한 안전한 인증
-- 간편한 저장소 동기화 메커니즘
+- fork된 레포에 `main_updated` 깃헙 이벤트를 발생시킵니다.
+- fork된 레포에서 이 이벤트를 받아서 처리하는데에 [humonnom/sync-fork](https://github.com/marketplace/actions/auto-sync-forked-repo)를 사용할 수 있습니다.
+- [humonnom/sync-fork](https://github.com/marketplace/actions/auto-sync-forked-repo)액션과 함께 사용하면 저장소 동기화 메커니즘을 간편하게 구현할 수 있습니다.
 
 ## 입력 파라미터
 
@@ -22,7 +22,7 @@
 
 ```yaml
 - name: Sync Forked Repository
-  uses: username/sync-forked-repo@v1
+  uses: humonnom/dispatch-event@v0.1.0-alpha.2
   with:
     forked_repository_owner: 'target-owner'
     forked_repository_name: 'target-repo'
@@ -44,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Trigger Sync Event
-        uses: username/sync-forked-repo@v0.1.0-alpha.2
+        uses: humonnom/dispatch-event@v0.1.0-alpha.2
         with:
           forked_repository_owner: 'target-owner'
           forked_repository_name: 'target-repo'
