@@ -22,7 +22,7 @@
 
 ```yaml
 - name: Sync Forked Repository
-  uses: humonnom/dispatch-event@v0.1.0-alpha.2
+  uses: humonnom/dispatch-event@v0.1.0
   with:
     forked_repository_owner: 'target-owner'
     forked_repository_name: 'target-repo'
@@ -44,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Trigger Sync Event
-        uses: humonnom/dispatch-event@v0.1.0-alpha.2
+        uses: humonnom/dispatch-event@v0.1.0
         with:
           forked_repository_owner: 'target-owner'
           forked_repository_name: 'target-repo'
